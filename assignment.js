@@ -1,4 +1,4 @@
-import { fetchDogs } from "./api/fetchDogs";
+import { fetchDogs } from "./api/fetchDogs.js";
 
 async function main() {
   const dogBreeds = await fetchDogs();
