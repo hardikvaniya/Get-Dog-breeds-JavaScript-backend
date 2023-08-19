@@ -1,9 +1,17 @@
 import { friends } from "../friend-collections.js";
 import { select } from "@inquirer/prompts";
 
-export function getValidUserName() {
-  return select({
+export async function getValidUserName() {
+  const validFriendNames = friends.map(friend => friend.name);
+  const nameChoices = validFriendNames.map(username => ({ title: username, value: username }));
+  const response = await select({
+    type: "select",
+    name: "username",
     message: "Who are you?",
-    // choices: ...,
+    choices: nameChoices,
   });
+
+  return response;
+  
 }
+

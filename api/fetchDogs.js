@@ -12,6 +12,7 @@ export async function fetchDogs() {
   const cachedData = readCache();
 
   if (cachedData) {
+    return cachedData;
   } else {
     try {
   
