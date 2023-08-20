@@ -5,7 +5,7 @@ import path from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const cacheFileName = "dog-cache.json";
+const cacheFileName = ".dog-cache.json";
 const cacheFilePath = path.join(__dirname, cacheFileName);
 
 
@@ -17,7 +17,6 @@ export async function fetchDogs() {
     return cachedData; // return the cached data
   } else {
     try {
-  
       const resp = await fetch("https://dog.ceo/api/breeds/list/all");
       const dogList = await resp.json();
       const structuredDogList = structureDogNames(dogList.message);

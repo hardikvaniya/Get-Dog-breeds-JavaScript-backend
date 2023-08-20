@@ -10,5 +10,8 @@ package-lock.json
 # Optional eslint cache
 .eslintcache
 
+# ignore cached data
+*.dog-cache.json*
+
 # DS_Store
 *.DS_Store*

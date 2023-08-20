@@ -1,5 +1,5 @@
 export const months = [
-  { name: "January", index: 0 }, // TODO:
+  { name: "January", index: 0 },
   { name: "February", index: 1 },
   { name: "March", index: 2 },
   { name: "April", index: 3 },

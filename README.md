@@ -1,6 +1,6 @@
 # code-assignment-bc
 
-Given a person and breedPhotos, it prints #TODO
+Given a person and breedPhotos, print dog breed from the selected dates till all the breeds are exhausted.
 
 ## To Run:
 
