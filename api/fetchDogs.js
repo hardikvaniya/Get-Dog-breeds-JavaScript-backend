@@ -21,7 +21,7 @@ export async function fetchDogs() {
       const resp = await fetch("https://dog.ceo/api/breeds/list/all");
       const dogList = await resp.json();
       const structuredDogList = structureDogNames(dogList.message);
-      writeCache(structuredDogList);
+      writeCache(structuredDogList,cacheFilePath);
 
       return structuredDogList;
 
@@ -44,9 +44,14 @@ function readCache() {
   }
 }
 
-// write the dog names to a file
-function writeCache(data) {
-  fs.writeFileSync(cacheFilePath, JSON.stringify(data), "utf8");
+// write the dog names to a cached file
+function writeCache(data, filePath) {
+  try {
+      fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
+      console.log("Cache file written successfully.");
+  } catch (error) {
+      console.error("An error occurred while writing the cache file:", error);
+  }
 }
 
 //structure the dog names as <breed> <group>
