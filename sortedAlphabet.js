@@ -14,7 +14,7 @@ export const sortedAlphabet = [
   "m",
   "n",
   "o",
-  "o",
+  "p",
   "q",
   "r",
   "s",
