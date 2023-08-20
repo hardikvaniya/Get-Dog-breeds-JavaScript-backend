@@ -1,3 +1,5 @@
+// fixed the bug and added functionality to check if the month of febuary is a leap year
+
 export function getDaysInMonth(month, year) {
   const daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   
@@ -8,6 +10,7 @@ export function getDaysInMonth(month, year) {
   return daysInMonths[month - 1]; // -1 because the month array is zero indexed
 }
 
+// check if the year is a leap year
 function isLeapYear(year) {
   return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }

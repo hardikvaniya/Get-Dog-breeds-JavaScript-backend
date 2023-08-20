@@ -1,11 +1,11 @@
 import { fetchDogs } from "./api/fetchDogs.js";
 import { getValidUserName } from "./inputs/getValidUserName.js";
-import readline from "readline";
-// rl is a global variable that allows us to read user input
-const readIn = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+import { getValidDate } from "./validdate.js";
+// import {rl} from "./readlineinterface.js"; 
+import { printBreedsByAlphabet,filteredFriendBreedPhotos} from "./getDogBreedAsUser.js";
+import { friends } from "./friend-collections.js";
+import { getValidLetter } from "./getAlphabet.js";
+import inquirer from "inquirer";
 
 async function main() {
   const dogBreeds = await fetchDogs();
@@ -18,16 +18,31 @@ async function main() {
   // Get inputs from user...
   const userName = await getValidUserName();
   console.log(`Hello ${userName}!`);
+  const selectedLetter = await getValidLetter();
+  const startDate = await getValidDate();
 
+  const currentDate = new Date(startDate); //get current date to compare with start date
+
+  var filteredDogBreeds =  filteredFriendBreedPhotos(userName, dogBreeds, friends);
+
+  // console.log(filteredDogBreeds)
   console.log(`Here is the list of breeds you need to take photos of: `);
+  printBreedsByAlphabet(filteredDogBreeds, selectedLetter, currentDate);
 
-  readIn.question("Do you want to run the program again? (y/n): ", (answer) => {
-    if (answer.toLowerCase() === "y") {
-      main();
-    } else {
-      readIn.close();
+  const response = await inquirer.prompt([
+    {
+      type: "confirm",
+      name: "continue",
+      message: "Do you want to run the program again?",
+      default: false
     }
-  });
+  ]);
+
+  if (response.continue) {
+    main();
+  } else {
+    process.exit(0); // Exit the program
+  }
 }
 
 main();
