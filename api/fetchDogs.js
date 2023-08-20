@@ -8,11 +8,13 @@ const __dirname = path.dirname(__filename);
 const cacheFileName = "dog-cache.json";
 const cacheFilePath = path.join(__dirname, cacheFileName);
 
+
+// fetch the dog names from the DogAPI
 export async function fetchDogs() {
   const cachedData = readCache();
 
   if (cachedData) {
-    return cachedData;
+    return cachedData; // return the cached data
   } else {
     try {
   
@@ -25,14 +27,14 @@ export async function fetchDogs() {
 
     } catch (err) {
       console.log(
-        `There was a problem fetching dog breed data from the DogAPI, please try again later`,
+        `There was a problem fetching dog breed data from the DogAPI, please try again`,
       );
       return;
     }
   }
-  return;
 }
-// read the dog names from a Cached file
+
+// read the dog names from a cached file
 function readCache() {
   try {
     const cacheData = fs.readFileSync(cacheFilePath, "utf8");
@@ -41,7 +43,6 @@ function readCache() {
     return null;
   }
 }
-
 
 // write the dog names to a file
 function writeCache(data) {
