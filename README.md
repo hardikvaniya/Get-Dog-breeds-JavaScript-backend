@@ -1,51 +1,44 @@
 # code-assignment-bc
 
-Requirements:
+Given a person and breedPhotos, it prints #TODO
 
-npm,
+## To Run:
 
-inquirer
+```
+node assignment.js
+```
 
+## Output
 
-1) "validDate.js" contains functions to get valid date from user and its helper functions are defined in file "getDateHelpers.js".
-
-2) "getAlphabet.js" file introduce to define function to get an alphabet letter from user.
-
-3) "getDogBreedAsUser.js" had function to filter out photos, generate randam alphabet and assigned dog breed to the generated dates.
-
-## TO Run:
-
-Run file:
-
-### node assignment.js
-
--> select one of the four names
--> Enter a letter of alphabet
--> Enter any present or future Year -> Month -> Day (make sure to enter valid date for lear year feb month)
-
-## Result:
-
-Result will print dog breed from the selected dates  till all the breeds are exhausted.
-
+Script will print dog breed from the selected dates till all the breeds are exhausted. 
 At the end program will ask you to run again or quit.
 
 
-
-Assumption:
- User knows when and how many days are there in February month of the leap years.
-
-
-
-## Fixed Bugs:
+## Fixes in provided code:
 
 1) In file "assignment.js" replaced import "fetchDogs" to "fetchDogs.js".
 2) In the sortedAlphabet list replace one of the “o” with “p”.
 
+## Execution of program - Example
+```
+ node assignment.js 
+? Who are you? hayden
+Hello hayden!
+? Please enter a letter of the alphabet: f
+? Enter a start year (YYYY): 2023
+? Enter a start month (MM): 9
+? Enter a start day of the month (DD): 1
+Here is the list of breeds you need to take photos of: 
+2023-09-01: flatcoated retriever
+2023-09-02: fox terrier
+2023-09-03: french bulldog
+2023-09-04: newfoundland
+.
+.
+.
+2024-01-22: irish wolfhound
+2024-01-23: italian greyhound
+2024-01-24: italian segugio
+```
 
-
-## Notes:
-1) In the "getDaysInMonths.js" file implement the corner case of Leap years.
-2) add .DS_store and node modules files to .gitignore
-3) Could have kept the select prompt for months but found the entering number more suitable.
-
-
+#TODO - ignore cache files in gitignore and create cache directory

@@ -1,30 +1,46 @@
-// Description: This file contains helper functions for getting valid dates from the user.
 
-import { getDaysInMonth } from "./getDaysInMonth.js";
+// This file contains the function that prompts the user to enter a valid date.
+import { getDaysInMonth } from "../date.js";
 import inquirer from "inquirer";
+
+export async function getDate() {
+  const year = await getValidYear(); // to get a valid year from the user
+  const month = await getValidMonth(year); // to get a valid month from the user
+  const day = await getValidDay(year, month); // to get a valid day from the user
+
+  const inputDate = new Date(year, month - 1, day); // month - 1 because months are zero-indexed in JS
+  const now = new Date();
+
+  if (inputDate >= now) {
+    return inputDate;
+  } else {
+    console.log("Invalid date. Please enter a present or future date.");
+    return getDate();
+  }
+}
 
 
 // to get a year from the user
 export async function getValidYear() {
-    const response = await inquirer.prompt([ // to prompt the user to enter a year
-      {
-        type: "input",
-        name: "year",
-        message: "Enter a start year (YYYY):",
-        validate: input => {
-          const inputYear = parseInt(input);
-  
-          if (!isNaN(inputYear) && inputYear >= new Date().getFullYear()) { // to check if the input is a valid year
-            return true;
-          } else {
-            return "Invalid year. Please enter a present or future year.";
-          }
+  const response = await inquirer.prompt([ // to prompt the user to enter a year
+    {
+      type: "input",
+      name: "year",
+      message: "Enter a start year (YYYY):",
+      validate: input => {
+        const inputYear = parseInt(input);
+
+        if (!isNaN(inputYear) && inputYear >= new Date().getFullYear()) { // to check if the input is a valid year
+          return true;
+        } else {
+          return "Invalid year. Please enter a present or future year.";
         }
       }
-    ]);
-  
-    return parseInt(response.year); // to return the ye
-  }
+    }
+  ]);
+
+  return parseInt(response.year); // to return the ye
+}
 
 // to get a month from the user
 export async function getValidMonth(year) {

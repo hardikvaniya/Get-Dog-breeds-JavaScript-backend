@@ -1,4 +1,4 @@
-import { sortedAlphabet } from "./sortedAlphabet.js";
+import { sortedAlphabet } from "../../resources/sortedAlphabet.js";
 import inquirer from "inquirer";
 
 // to get an alphabet letter from the user

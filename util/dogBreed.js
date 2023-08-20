@@ -1,6 +1,6 @@
 // Desciption: This file contains the functions to print the dog breeds by randomonly generated alphabet
 
-import { sortedAlphabet } from "./sortedAlphabet.js";
+import { sortedAlphabet } from "../resources/sortedAlphabet.js";
 
 //to print all dog breeds by randomonly generated alphabet
 export function printBreedsByAlphabet(dogBreeds, startLetter, currentDate) {
