@@ -1,7 +1,5 @@
 // Desciption: This file contains the functions to print the dog breeds by randomonly generated alphabet
 
-
-
 import { sortedAlphabet } from "./sortedAlphabet.js";
 
 //to print all dog breeds by randomonly generated alphabet
@@ -32,9 +30,6 @@ export function filteredFriendBreedPhotos(userName, dogBreeds, friends){
       return null;
     }
   }
-
-
-
 
 // to generate a random next letter
 export function getNextLetter(usedLetters) {
