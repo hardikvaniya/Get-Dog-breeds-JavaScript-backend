@@ -1,9 +1,10 @@
 # code-assignment-bc
 
-Libraries to Install:
+Requirements:
 
-npm
-npm install inquirer
+npm,
+
+inquirer
 
 
 1) "validDate.js" contains functions to get valid date from user and its helper functions are defined in file "getDateHelpers.js".
@@ -39,12 +40,12 @@ Assumption:
 
 1) In file "assignment.js" replaced import "fetchDogs" to "fetchDogs.js".
 2) In the sortedAlphabet list replace one of the “o” with “p”.
-3) In the "getDaysInMonths.js" file implement the corner case of Leap years.
+
 
 
 ## Notes:
-
-1) add .DS_store files to .gitignore
-2) Could have kept the select prompt for months but found the entering number more suitable.
+1) In the "getDaysInMonths.js" file implement the corner case of Leap years.
+2) add .DS_store and node modules files to .gitignore
+3) Could have kept the select prompt for months but found the entering number more suitable.
 
 
