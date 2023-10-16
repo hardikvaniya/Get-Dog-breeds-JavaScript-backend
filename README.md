@@ -1,4 +1,4 @@
-# code-assignment-bc
+# Get Dog breeds Backend In JavaScript Project
 
 Given a person and breedPhotos, print dog breed from the selected dates till all the breeds are exhausted.
 
